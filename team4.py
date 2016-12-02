@@ -43,13 +43,7 @@ def move(my_history, their_history, my_score, their_score):
             elif my_history [-2] == my_history[-1] == 'c':
                 return 'b' #if their last two rounds results in a collude, then betray
             elif my_history[-2] == my_history[-1] == 'b':
-                if len(their_history) > 0:
-                    if their_history[-1] == 'c':
-                        return 'c'
-                    elif their_history[-1] == 'b':
-                        return 'b'
-                else:
-                    'c' 
+                return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
