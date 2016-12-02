@@ -26,7 +26,30 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
+    if len(their_history) <= 10: #Follow this code for 10 rounds
+        if len(their_history) > 0:
+            if their_history[-1] == 'c':
+               return 'c'
+            elif their_history[-1] == 'b':
+               return 'b'
+            else:
+                'c'
+    else:
+        if len(their_history) > 10: #Follow this code ONLY after 10 rounds
+            if their_history[-3] == their_history[-2] == their_history[-1] == 'c':
+                return 'b' #If their last 3 turns results in all collude, then betray
+            elif their_history[-4] == 'b' and their_history[-3] == 'c' and their_history[-2] == 'b' and their_history[-1] == 'c':
+                return 'b' #If their last 4 turns results in collude then betray then collude and then betray, choose betray
+            elif my_history [-2] == my_history[-1] == 'c':
+                return 'b' #if their last two rounds results in a collude, then betray
+            elif my_history[-2] == my_history[-1] == 'b':
+                if len(their_history) > 0:
+                    if their_history[-1] == 'c':
+                        return 'c'
+                    elif their_history[-1] == 'b':
+                        return 'b'
+                else:
+                    'c' 
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
